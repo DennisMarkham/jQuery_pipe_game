@@ -1,0 +1,63 @@
+<head>
+	<style>
+		#pressure
+		{
+			color: blue;
+		}
+
+
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+	<div>Get pressure to 17</div>
+	Pressure: <span id = "pressure"></span>
+	<br />
+	<button id = "1">A</button>
+	<button id = "5">B</button>
+	<button id = "7">C</button>
+	<button id = "9">D</button>
+	<button id = "8">E</button>
+	<button id = "2">F</button>
+
+	<script>
+		let pressure = 0;
+		$("#pressure").text(pressure)
+
+		$("button").data("on", false)
+
+		$("button").click((event) => {
+			console.log(event.target.id)
+			if ($("#" + event.target.id).data("on") == false){
+			pressure = parseInt(pressure) + parseInt(event.target.id)
+
+			$("#" + event.target.id).data("on", true)
+
+			$("#pressure").text(pressure)
+		}
+			else{
+				pressure = parseInt(pressure) - parseInt(event.target.id)
+				$("#" + event.target.id).data("on", false)
+			$("#pressure").text(pressure)
+			}
+
+			if(pressure == 17)
+			{
+				$("#pressure").css("color", "hsl(180, 60%, 60%)");
+				setTimeout(() => alert("Yay!  U r teh winz"), 100);
+			}
+			else if (pressure < 17)
+			{
+				$("#pressure").css("color", "blue")
+			}
+			else
+			{
+				$("#pressure").css("color", "red")
+			}
+
+
+			}
+			)
+
+	</script>
+</body>
